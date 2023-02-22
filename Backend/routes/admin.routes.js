@@ -8,7 +8,7 @@ const { bookingModel } = require("../models/booking.model");
 
 const adminRouter = express.Router();
 
-adminRouter.get("/users", async (req, res) => {
+adminRouter.post("/users", async (req, res) => {
   const { email, pass } = req.body;
   if (email === process.env.adminId && pass === process.env.adminPass) {
     try {
@@ -22,7 +22,7 @@ adminRouter.get("/users", async (req, res) => {
   }
 });
 
-adminRouter.get("/bookings", async (req, res) => {
+adminRouter.post("/bookings", async (req, res) => {
   const { email, pass } = req.body;
   if (email === process.env.adminId && pass === process.env.adminPass) {
     try {
