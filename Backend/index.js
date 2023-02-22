@@ -3,17 +3,18 @@ const { userRouter } = require("./routes/user.routes");
 const { connection } = require("./configs/db");
 const { authentication } = require("./middleware/authenticate");
 const { bookingRouter } = require("./routes/booking.routes");
+const { adminRouter } = require("./routes/admin.routes");
 const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
 
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 app.get("/", (req, res) => {
   res.send("Home Page");
 });
-
+app.use("/admin", adminRouter);
 app.use("/users", userRouter);
 app.use(authentication);
 app.use("/bookings", bookingRouter);

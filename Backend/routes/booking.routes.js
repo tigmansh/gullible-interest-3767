@@ -7,12 +7,12 @@ require("dotenv").config();
 const bookingRouter = express.Router();
 
 bookingRouter.get("/", async (req, res) => {
+  const data = await bookingModel.find({ userID: req.body.userID });
   try {
-    const data = await bookingModel.find({ userID: req.body.userID });
     if (data.length > 0) {
       res.send(data);
     } else {
-      res.send({ msg: "No past bookings found" });
+      res.send({ msg: "No Bookings Found" });
     }
   } catch (err) {
     res.send({ err: err.message });
