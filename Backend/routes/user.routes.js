@@ -27,7 +27,7 @@ userRouter.post("/register", async (req, res) => {
 
   const x = await userModel.findOne({ email: req.body.email });
   if (x) {
-    res.send({ error: "This email-id is already registered" });
+    res.send({ err: "This email-id is already registered" });
   } else {
     try {
       bcrypt.hash(pass, 8, async (err, hash) => {
@@ -72,12 +72,12 @@ userRouter.post("/login", async (req, res) => {
             token: token,
           });
         } else {
-          res.send({ error: "Wrong Password 🔑" });
+          res.send({ err: "Wrong Password 🔑" });
         }
       });
     } else {
       res.send({
-        error:
+        err:
           "You are not registered or Maybe you entered a wrong email address",
       });
     }
