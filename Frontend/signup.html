@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/signup.css">
+    <link rel="stylesheet" href="https://unpkg.com/sweetalert/dist/sweetalert.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <div id="navdiv">
+            <img id="logo" src="./images/logo(4).png" alt="logo" onclick=window.location.href="index.html">
+            <ul>
+                <li>
+                    <a href="#" class="op">LOGIN</a>
+                    <ul>
+                        <li><a href="login.html">EXISTING USER</a></li>
+                        <li><a href="adminLogin.html">LOGIN AS A ADMIN</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div id="top-part-form">
+        <h1>JOIN DRIVIFY !</h1>
+        <h4>If you already a user, <a href="login.html">click here</a> and login</h4>
+    </div>
+    <hr>
+    <form id="form">
+        <div class="label-div">
+            <label for="country">Country</label>
+        </div>
+
+        <div>
+            <select id="country" name="country">
+                <option value="">Select Your Country</option>
+                <option value="usa">USA</option>
+                <option value="canada">Canada</option>
+                <option value="uk">United Kingdom</option>
+                <option value="australia">Australia</option>
+                <option value="japan">Japan</option>
+                <option value="china">China</option>
+                <option value="india">India</option>
+                <option value="france">France</option>
+                <option value="germany">Germany</option>
+                <option value="spain">Spain</option>
+                <option value="italy">Italy</option>
+                <option value="netherlands">Netherlands</option>
+                <option value="switzerland">Switzerland</option>
+                <option value="belgium">Belgium</option>
+                <option value="sweden">Sweden</option>
+                <option value="denmark">Denmark</option>
+                <option value="norway">Norway</option>
+                <option value="finland">Finland</option>
+                <option value="russia">Russia</option>
+                <option value="brazil">Brazil</option>
+                <option value="mexico">Mexico</option>
+                <option value="argentina">Argentina</option>
+                <option value="chile">Chile</option>
+                <option value="peru">Peru</option>
+                <option value="colombia">Colombia</option>
+                <option value="egypt">Egypt</option>
+                <option value="south-africa">South Africa</option>
+                <option value="nigeria">Nigeria</option>
+                <option value="kenya">Kenya</option>
+                <option value="morocco">Morocco</option>
+                <option value="turkey">Turkey</option>
+            </select>
+        </div>
+
+        <div class="label-div">
+            <label for="firstname">First Name</label>
+        </div>
+
+        <input type="text" id="firstname">
+
+        <div class="label-div">
+            <label for="lastname">Last Name</label>
+        </div>
+
+        <input type="text" id="lastname">
+
+        <div class="label-div">
+            <label for="age">Age</label>
+        </div>
+
+        <input type="number" id="age">
+
+        <div class="label-div">
+            <label for="mobile">Mobile No.</label>
+        </div>
+
+        <input type="number" id="mobile">
+
+        <div class="label-div">
+            <label for="email">Email-Id</label>
+        </div>
+
+        <input type="email" id="email">
+
+        <div class="label-div">
+            <label for="pass">Password</label>
+        </div>
+
+        <input type="password" id="password">
+
+        <div class="label-div">
+            <label for="address">Address</label>
+        </div>
+
+        <input type="text" id="address">
+
+        <div class="label-div">
+            <label for="zipcode">Zip/Postal Code</label>
+        </div>
+
+        <input type="number" id="zipcode">
+
+    </form>
+    <hr>
+
+    <div id="end-part-form">
+        <p>Please read our <a href="./terms&conditions/4609_AV_COM_terms_update.pdf">Terms and Conditions</a>. Please
+            verify the spelling of your username, email <br> and password before
+            saving. Please be advised, username cannot be changed once <br> submitted.</p>
+
+        <button onclick="onSignup()">SIGN UP</button>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function onSignup() {
+        const payload = {
+            country: document.getElementById("country").value,
+            firstname: document.getElementById("firstname").value,
+            lastname: document.getElementById("lastname").value,
+            age: document.getElementById("age").value,
+            mobile: document.getElementById("mobile").value,
+            email: document.getElementById("email").value,
+            pass: document.getElementById("password").value,
+            address: document.getElementById("address").value,
+            zipcode: document.getElementById("zipcode").value
+        }
+
+        fetch("https://good-pink-narwhal-garb.cyclic.app/users/register", {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json",
+            },
+            body: JSON.stringify(payload)
+        }).then(res => res.json())
+            .then(res => {
+                if (res.msg) {
+                    swal("Hooray 🎉", res.msg, "success");
+                    document.getElementById("form").reset();
+                    
+                    setTimeout(function () {
+                        window.location.href = "login.html";
+                    }, 4000);
+                }
+                else {
+                    swal("Ohh no 😔", res.err, "error");
+                    document.getElementById("form").reset();
+                }
+            })
+            .catch(err => console.log(err))
+    }
+
+</script>

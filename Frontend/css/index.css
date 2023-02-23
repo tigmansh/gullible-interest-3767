@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope&family=Montserrat:wght@600&family=Poppins&family=Quicksand&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    float: left;
+    position: relative;
+}
+
+nav li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+nav li:hover>ul {
+    display: block;
+}
+
+nav ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -60%;
+    background-color: white;
+    padding: 0;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+ul li ul a:hover {
+    color: red;
+}
+
+.op {
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.op:hover {
+    background-color: darkgray;
+    transform: scale(1.1) rotateX(0deg) rotateY(0deg);
+}
+
+nav ul ul li {
+    float: none;
+    width: 300px;
+}
+
+nav ul ul a {
+    padding: 10px;
+}
+
+nav ul ul ul {
+    top: 0;
+    left: 100%;
+    border-left: 2px solid black;
+}
+
+#navdiv {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#navdiv img {
+    width: 12%;
+    height: 10%;
+    margin-top: 0%;
+}
+
+nav {
+    padding: 1% 0%;
+    font-family: 'montserrat';
+    background-color: #C0C0C0;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}

@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope&family=Montserrat:wght@600&family=Poppins&family=Quicksand&display=swap');
+
+#top-part-form {
+    font-family: 'poppins';
+    margin-left: 22.7%;
+    /* padding-bottom: 1.5%; */
+    word-spacing: 4px;
+}
+
+#top-part-form a {
+    text-decoration: none;
+    color: red;
+}
+
+#logo {
+    cursor: pointer;
+}
+
+#logo {
+    margin-right: 60%;
+}
+
+hr {
+    width: 55%;
+    margin-top: 3%;
+}
+
+form {
+    margin-left: 22.7%;
+}
+
+.label-div {
+    font-family: 'montserrat';
+    margin-top: 2%;
+    margin-bottom: 0.5%;
+}
+
+#country {
+    font-family: 'poppins';
+    padding-left: 1%;
+    width: 25%;
+    height: 36.4px;
+    background-color: #f7f7f7;
+    border: 1px solid black;
+}
+
+#country:hover {
+    border: 2px solid grey;
+}
+
+input {
+    font-family: 'poppins';
+    padding-left: 1%;
+    width: 69%;
+    height: 30px;
+    background-color: #f7f7f7;
+    border: 1px solid black;
+}
+
+input:hover {
+    border: 2px solid grey;
+}
+
+#end-part-form {
+    display: flex;
+    margin-left: 22.3%;
+    justify-content: space-between;
+    width: 55%;
+    margin-top: 1%;
+}
+
+#end-part-form p {
+    font-family: 'quicksand';
+}
+
+#end-part-form p a{
+    text-decoration: none;
+    color: red;
+}
+
+#end-part-form button {
+    font-family: 'montserrat';
+    border: none;
+    background-color: #d4002a;
+    color: white;
+    width: 15%;
+    margin-bottom: 4%;
+    margin-top: 2%;
+    cursor: pointer;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+#end-part-form button:hover {
+    transform:translateY(-5px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}

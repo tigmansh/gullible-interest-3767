@@ -13,12 +13,12 @@ adminRouter.post("/users", async (req, res) => {
   if (email === process.env.adminId && pass === process.env.adminPass) {
     try {
       const data = await userModel.find();
-      res.send(data);
+      res.send({ msg: data });
     } catch (err) {
-      res.send({ Error: err.message });
+      res.send({ err: err.message });
     }
   } else {
-    res.send({ Error: "You are not Authorized to go further." });
+    res.send({ err: "You are not Authorized to go further." });
   }
 });
 
@@ -27,12 +27,12 @@ adminRouter.post("/bookings", async (req, res) => {
   if (email === process.env.adminId && pass === process.env.adminPass) {
     try {
       const data = await bookingModel.find();
-      res.send(data);
+      res.send({ msg: data });
     } catch (err) {
-      res.send({ Error: err.message });
+      res.send({ err: err.message });
     }
   } else {
-    res.send({ Error: "You are not Authorized to go further." });
+    res.send({ err: "You are not Authorized to go further." });
   }
 });
 

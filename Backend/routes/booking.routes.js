@@ -10,7 +10,7 @@ bookingRouter.get("/", async (req, res) => {
   const data = await bookingModel.find({ userID: req.body.userID });
   try {
     if (data.length > 0) {
-      res.send(data);
+      res.send({ msg: data });
     } else {
       res.send({ msg: "No Bookings Found" });
     }
@@ -26,11 +26,11 @@ bookingRouter.post("/dobooking", async (req, res) => {
   try {
     const traveling = new bookingModel(booking);
     await traveling.save();
-    res.send(
-      `Your booking from ${traveling.start_location} to ${traveling.end_location} is done, Happy journey 🎉`
-    );
+    res.send({
+      msg: `Your booking from ${traveling.start_location} to ${traveling.end_location} is done, Happy journey 🎉`,
+    });
   } catch (err) {
-    res.send({ Error: err.message });
+    res.send({ err: err.message });
   }
 });
 
@@ -43,9 +43,9 @@ bookingRouter.patch("/update/:id", async (req, res) => {
   try {
     if (travel.userID === req.body.userID) {
       await bookingModel.findByIdAndUpdate({ _id: id }, payload);
-      res.send(`Your booking for ${travel.start_date} is updated 👍`);
+      res.send({ msg: `Your booking for ${travel.start_date} is updated 👍` });
     } else {
-      res.send({ msg: "You don't have authority to do this" });
+      res.send({ err: "You don't have authority to do this" });
     }
   } catch (err) {
     res.send({ err: err.message });
@@ -60,9 +60,9 @@ bookingRouter.delete("/delete/:id", async (req, res) => {
   try {
     if (travel.userID === req.body.userID) {
       await bookingModel.findByIdAndDelete({ _id: id });
-      res.send(`Your booking for ${travel.start_date} is canceled 👍`);
+      res.send({ msg: `Your booking for ${travel.start_date} is canceled 👍` });
     } else {
-      res.send({ msg: "You don't have authority to do this" });
+      res.send({ err: "You don't have authority to do this" });
     }
   } catch (err) {
     res.send({ err: err.message });
