@@ -11,26 +11,40 @@ function onSignup() {
     zipcode: document.getElementById("zipcode").value,
   };
 
-  fetch("https://good-pink-narwhal-garb.cyclic.app/users/register", {
-    method: "POST",
-    headers: {
-      "Content-type": "application/json",
-    },
-    body: JSON.stringify(payload),
-  })
-    .then((res) => res.json())
-    .then((res) => {
-      if (res.msg) {
-        swal("Hooray 🎉", res.msg, "success");
-        document.getElementById("form").reset();
-
-        setTimeout(function () {
-          window.location.href = "login.html";
-        }, 4000);
-      } else {
-        swal("Ohh no 😔", res.err, "error");
-        document.getElementById("form").reset();
-      }
+  if (
+    !payload.country ||
+    !payload.firstname ||
+    !payload.lastname ||
+    !payload.age ||
+    !payload.mobile ||
+    !payload.email ||
+    !payload.pass ||
+    !payload.address ||
+    !payload.zipcode
+  ) {
+    swal("Error 404 🤖", "All the fields are required", "error");
+  } else {
+    fetch("https://good-pink-narwhal-garb.cyclic.app/users/register", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(payload),
     })
-    .catch((err) => console.log(err));
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.msg) {
+          swal("Hooray 🎉", res.msg, "success");
+          document.getElementById("form").reset();
+
+          setTimeout(function () {
+            window.location.href = "login.html";
+          }, 2000);
+        } else {
+          swal("Ohh no 😔", res.err, "error");
+          document.getElementById("form").reset();
+        }
+      })
+      .catch((err) => console.log(err));
+  }
 }

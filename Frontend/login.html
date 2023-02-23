@@ -1,12 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/signup.css">
+    <link rel="stylesheet" href="https://unpkg.com/sweetalert/dist/sweetalert.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </head>
+
 <body>
-    <h1>Helloo Welcome To Login Page !</h1>
+    <nav>
+        <div id="navdiv">
+            <img id="logo" src="./images/logo(4).png" alt="logo" onclick=window.location.href="index.html">
+            <ul>
+                <li>
+                    <a href="signup.html" class="op">NEW USER? SIGNUP NOW</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div id="top-part-form">
+        <h1>DRIVE WITH DRIVIFY !</h1>
+        <h4>Don't have an account ? 👉 <a href="signup.html">click here</a> and register</h4>
+    </div>
+    <hr>
+    <form id="form">
+
+
+        <div class="label-div">
+            <label for="email">Email-Id</label>
+        </div>
+
+        <input type="email" id="email">
+
+        <div class="label-div">
+            <label for="pass">Password</label>
+        </div>
+
+        <input type="password" id="password">
+    </form>
+    <hr>
+
+    <div id="end-part-form">
+        <p>
+            Please read our <a href="./terms&conditions/4609_AV_COM_terms_update.pdf">Terms and Conditions</a>. Please
+            verify the spelling of your email <br> and password before login
+        </p>
+
+        <div>
+            <button onclick="onLogin()">LOG IN</button>
+        </div>
+    </div>
 </body>
+
 </html>
+
+<script src="./scripts/login.js"></script>
