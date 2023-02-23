@@ -83,11 +83,12 @@ input:hover {
     border: none;
     background-color: #d4002a;
     color: white;
-    width: 15%;
-    margin-bottom: 4%;
-    margin-top: 2%;
+    /* width: 15%; */
+    /* margin-bottom: 4%; */
+    /* margin-top: 2%; */
     cursor: pointer;
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    height: 60%; width: 170%; margin-left: -70%; margin-top: 20%;
 }
 
 #end-part-form button:hover {
