@@ -27,7 +27,7 @@ userRouter.post("/register", async (req, res) => {
 
   const x = await userModel.findOne({ email: req.body.email });
   if (x) {
-    res.send({ msg: "This email-id is already registered" });
+    res.send({ error: "This email-id is already registered" });
   } else {
     try {
       bcrypt.hash(pass, 8, async (err, hash) => {
@@ -46,11 +46,11 @@ userRouter.post("/register", async (req, res) => {
           await user.save();
           res.send({ msg: `Welcome ${req.body.firstname} you are registered` });
         } else {
-          res.send(err.message);
+          res.send({ err: err.message });
         }
       });
     } catch (err) {
-      res.send({ msg: "There is an error", err: err.message });
+      res.send({ err: err.message });
     }
   }
 });
@@ -72,16 +72,17 @@ userRouter.post("/login", async (req, res) => {
             token: token,
           });
         } else {
-          res.send({ msg: "Wrong Password 🔑" });
+          res.send({ error: "Wrong Password 🔑" });
         }
       });
     } else {
       res.send({
-        msg: "You are not registered or Maybe you entered a wrong email address",
+        error:
+          "You are not registered or Maybe you entered a wrong email address",
       });
     }
   } catch (err) {
-    res.send({ msg: "There is an error", err: err.message });
+    res.send({ err: err.message });
   }
 });
 
