@@ -8,6 +8,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/signup.css">
+    <link rel="stylesheet" href="https://unpkg.com/sweetalert/dist/sweetalert.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -126,8 +128,9 @@
     <hr>
 
     <div id="end-part-form">
-        <p>Please read our <a href="./terms&conditions/4609_AV_COM_terms_update.pdf">Terms and Conditions</a>. Please verify the spelling of your username, email <br> and password before
-        saving. Please be advised, username cannot be changed once <br> submitted.</p>
+        <p>Please read our <a href="./terms&conditions/4609_AV_COM_terms_update.pdf">Terms and Conditions</a>. Please
+            verify the spelling of your username, email <br> and password before
+            saving. Please be advised, username cannot be changed once <br> submitted.</p>
 
         <button onclick="onSignup()">SIGN UP</button>
     </div>
@@ -149,18 +152,28 @@
             zipcode: document.getElementById("zipcode").value
         }
 
-        fetch("https://good-pink-narwhal-garb.cyclic.app/users/register",{
+        fetch("https://good-pink-narwhal-garb.cyclic.app/users/register", {
             method: "POST",
             headers: {
                 "Content-type": "application/json",
             },
             body: JSON.stringify(payload)
-        }).then(res=> res.json())
-        .then(res=> {
-            alert(res.msg);
-            // window.location.href="login.html";
-        })
-        .catch(err=> console.log(err))
+        }).then(res => res.json())
+            .then(res => {
+                if (res.msg) {
+                    swal("Hooray 🎉", res.msg, "success");
+                    document.getElementById("form").reset();
+                    
+                    setTimeout(function () {
+                        window.location.href = "login.html";
+                    }, 4000);
+                }
+                else {
+                    swal("Ohh no 😔", res.err, "error");
+                    document.getElementById("form").reset();
+                }
+            })
+            .catch(err => console.log(err))
     }
 
 </script>
