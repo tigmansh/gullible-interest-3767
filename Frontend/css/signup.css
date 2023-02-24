@@ -28,6 +28,10 @@ hr {
 form {
     margin-left: 22.7%;
 }
+body{
+    background-image: url("https://img.freepik.com/free-photo/pastel-acrylic-abstract-background-vector_53876-102998.jpg?w=2000");
+    background-repeat: no-repeat;
+}
 
 .label-div {
     font-family: 'montserrat';
@@ -45,7 +49,8 @@ form {
 }
 
 #country:hover {
-    border: 2px solid grey;
+    border: 2px solid black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 input {
@@ -58,7 +63,8 @@ input {
 }
 
 input:hover {
-    border: 2px solid grey;
+    border: 2px solid black;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #end-part-form {
@@ -70,12 +76,13 @@ input:hover {
 }
 
 #end-part-form p {
-    font-family: 'quicksand';
+    font-family: 'poppins';
+
 }
 
 #end-part-form p a{
     text-decoration: none;
-    color: red;
+    color:#d4002a;
 }
 
 #end-part-form button {
@@ -83,15 +90,15 @@ input:hover {
     border: none;
     background-color: #d4002a;
     color: white;
-    /* width: 15%; */
-    /* margin-bottom: 4%; */
-    /* margin-top: 2%; */
     cursor: pointer;
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-    height: 60%; width: 170%; margin-left: -70%; margin-top: 20%;
+    height: 60%; 
+    width: 170%; 
+    margin-left: -70%;
+    margin-top: 20%;
 }
 
 #end-part-form button:hover {
-    transform:translateY(-5px);
+    transform:translateY(-5px) translateX(-5px);
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
 }
