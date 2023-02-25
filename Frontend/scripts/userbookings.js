@@ -1,6 +1,9 @@
 var token = localStorage.getItem("token");
 let tbody = document.getElementById("tbody");
 let table = document.getElementById("table");
+let heading = document.getElementById("heading");
+var errorSound = document.getElementById("error-sound");
+var successSound = document.getElementById("success-sound");
 
 fetch("https://good-pink-narwhal-garb.cyclic.app/bookings", {
   headers: {
@@ -13,9 +16,8 @@ fetch("https://good-pink-narwhal-garb.cyclic.app/bookings", {
     if (typeof res.msg == "object") {
       showTable(res.msg);
     } else {
-      table.innerHTML = null;
-      let response = document.createElement("h2");
-      response.textContent = `${res.msg} 🤷‍♂️`;
+      heading.innerHTML = null;
+      heading.textContent = `${res.msg} 🤷‍♂️`;
       table.append(response);
     }
   })
@@ -24,6 +26,7 @@ fetch("https://good-pink-narwhal-garb.cyclic.app/bookings", {
 function showTable(data) {
   data.forEach((item) => {
     let row = document.createElement("tr");
+    row.setAttribute("id", "row");
     let td1 = document.createElement("td");
     td1.textContent = item.start_location;
     let td2 = document.createElement("td");
@@ -54,6 +57,7 @@ function showTable(data) {
     cancel_btn.textContent = "Cancel";
     td7.append(cancel_btn);
     cancel_btn.addEventListener("click", () => {
+      errorSound.play();
       swal({
         title: "Are you sure?",
         text: "Once canceled, you will not be able to recover this booking!",
@@ -62,6 +66,7 @@ function showTable(data) {
         dangerMode: true,
       }).then((res) => {
         if (res.isConfirmed) {
+          errorSound.play();
           swal("Sorry", res.err, "error");
           return;
         } else {
@@ -78,6 +83,7 @@ function showTable(data) {
             .then((res) => res.json())
             .then((res) => {
               if (res.msg) {
+                successSound.play();
                 swal("Done", res.msg, "success");
                 setTimeout(() => {
                   window.location.href = "userBookings.html";
