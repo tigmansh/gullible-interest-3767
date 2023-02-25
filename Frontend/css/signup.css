@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope&family=Montserrat:wght@600&family=Poppins&family=Quicksand&display=swap');
 
 #top-part-form {
+    margin-top: 5%;
     font-family: 'poppins';
     margin-left: 22.7%;
     /* padding-bottom: 1.5%; */
@@ -26,6 +27,7 @@ hr {
 }
 
 form {
+    margin-top: 3%;
     margin-left: 22.7%;
 }
 body{
