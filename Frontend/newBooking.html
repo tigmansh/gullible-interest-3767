@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/signup.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/editBookings.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/sweetalert/dist/sweetalert.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <title>New Car Bookings</title>
+</head>
+<body>
+  
+    <nav>
+        <div id="navdiv">
+            <img id="logo" src="./images/logo(4).png" alt="logo" onclick=window.location.href="index.html">
+            <ul>
+                <li>
+                    <a href="newBooking.html" class="op">New Booking</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+     
+    <div id="top-part-form">
+        <h1>RENT A CAR WITH DRIVIFY</h1>
+        <h4>Want to see your past/existing Bookings? 👉 <a href="userBookings.html">click here</a></h4>
+    </div>
+
+
+    <form id="form">
+        <div class="label-div">
+            <label for="start_location">Your Location</label>
+        </div>
+        <input type="text"id="start_location">
+
+        <div class="label-div">
+            <label for="end_location">Destination</label>
+        </div>
+
+        <input type="text" id="end_location">
+
+        <div class="label-div">
+            <label for="start_date">From</label>
+        </div>
+
+        <input type="date" id="start_date">
+
+        <div class="label-div">
+            <label for="end_date">To</label>
+        </div>
+
+        <input type="date" id="end_date">
+
+        <div class="label-div">
+            <label for="vechile_type">Vechicle Type</label>
+        </div>
+
+        <div>
+            <select id="country" name="country">
+                <option value="">Select Your Vechicle</option>
+                <option value="Hatchback">Hatchback</option>
+                <option value="Sedan">Sedan</option>
+                <option value="SUV">SUV</option>
+                <option value="MUV">MUV</option>
+                <option value="Crossover">Crossover</option>
+                <option value="Coupe">Coupe</option>
+                <option value="Convertible">Convertible</option>
+                <option value="Electric">Electric car</option>
+                <option value="Sports">Sports car</option>
+                <option value="Luxury">Luxury car</option>
+            </select>
+        </div>
+    </form>
+
+
+    <div id="end-part-form">
+        <p>Please read our <a href="./terms&conditions/4609_AV_COM_terms_update.pdf">Terms and Conditions</a>. Please
+            verify the spelling of your location, <br> Destination and Starting date of booking before
+            saving.</p>
+
+        <div>
+            <button onclick="onCreate()">LET'S GOO</button>
+        </div>
+    </div>
+
+
+  <!-- footer starts from here ⬇️ -->
+  <footer>
+    <hr />
+    <div id="upperPart">
+        <div>
+            <p>
+                Sign up to our newsletters and receive the latest exclusive
+                discounts and deals
+            </p>
+            <button>DO BOOKING</button>
+        </div>
+        <div id="connect-on-social-media">
+            <p>Connect with us</p>
+            <div id="socialMedia">
+                <svg width="40" height="40" class="eastendFooterSocialIcons_listItemSvg" viewBox="0 0 40 40">
+                    <circle cx="20" cy="20" r="20" class="eastendFooter_fill_hover-grey" />
+                    <path fill="#FFFFFF"
+                        d="M17.0680736,16.6145435 L17.0680736,14.6052554 C17.0680736,13.7187702 17.0904121,12.3525954 17.7335254,11.5060843 C18.4119099,10.6090177 19.3418964,10 20.9432132,10 C23.5509376,10 24.6490506,10.3715243 24.6490506,10.3715243 L24.132914,13.4342484 C24.132914,13.4342484 23.2711187,13.1861737 22.4669332,13.1861737 C21.6627476,13.1861737 20.9432132,13.4742226 20.9432132,14.2772324 L20.9432132,16.6145435 L24.2399036,16.6145435 L24.0094645,19.6055494 L20.9432132,19.6055494 L20.9432132,30 L17.0680736,30 L17.0680736,19.6055494 L15,19.6055494 L15,16.6145435 L17.0680736,16.6145435 Z"
+                        class="eastendFooterSocialIcons_listItemSvgPath-grey" />
+                </svg>
+                <svg width="40" height="40" class="eastendFooterSocialIcons_listItemSvg" version="1.1"
+                    viewBox="0 0 40 40">
+                    <circle cx="20" cy="20" r="20" class="eastendFooter_fill_hover-grey" />
+                    <path fill="#FFFFFF"
+                        d="M27.3656846,14.7303293 C28.1998845,14.2311958 28.8399769,13.4385904 29.1415367,12.4969382 C28.3604853,12.9590988 27.4974003,13.2941652 26.5753899,13.4744079 C25.8405546,12.6910456 24.7902946,12.2 23.6279607,12.2 C21.3991912,12.2 19.5909879,14.0093588 19.5909879,16.2392837 C19.5909879,16.5558637 19.6256499,16.8632005 19.694974,17.1589832 C16.3385326,16.9891392 13.3633738,15.3842865 11.3703062,12.9371462 C11.0225303,13.5367995 10.8238013,14.2311958 10.8238013,14.9706528 C10.8238013,16.369844 11.536684,17.607279 12.6204506,18.3317158 C11.9595609,18.3120739 11.3356441,18.1295205 10.7902946,17.8279607 L10.7902946,17.877643 C10.7902946,19.8348931 12.1825534,21.4674754 14.0311958,21.8383593 C13.6926632,21.9331023 13.3356441,21.9804737 12.9670711,21.9804737 C12.7071057,21.9804737 12.4529174,21.9562103 12.2068169,21.9088388 C12.7209705,23.5125361 14.2114385,24.680647 15.9792028,24.7129983 C14.5973426,25.7956095 12.8549971,26.4414789 10.9636049,26.4414789 C10.6377816,26.4414789 10.3154246,26.4229925 10,26.3860196 C11.7874061,27.5310225 13.9110341,28.2 16.1906412,28.2 C23.6198729,28.2 27.6811092,22.0463316 27.6811092,16.7072213 C27.6811092,16.5327556 27.677643,16.3571346 27.6707106,16.1849798 C28.4598498,15.6153668 29.1450029,14.9047949 29.6845754,14.0937031 C28.961294,14.4160601 28.1825534,14.6321202 27.3656846,14.7303293 Z"
+                        class="eastendFooterSocialIcons_listItemSvgPath-grey" />
+                </svg>
+                <img id="instagram-round-icon"
+                    src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/instagram-round-icon.png"
+                    alt="" />
+                <svg width="40" height="40" class="eastendFooterSocialIcons_listItemSvg" version="1.1"
+                    viewBox="0 0 40 40">
+                    <circle cx="20" cy="20" r="20" class="eastendFooter_fill_hover-grey" />
+                    <path fill="#FFFFFE"
+                        d="M17,23.6363636 L17,16.3636364 L23,20.000139 L17,23.6363636 Z M31.4984545,14.4984516 C31.2224545,13.5149677 30.4091818,12.7405161 29.3766364,12.4776774 C27.5050455,12 20,12 20,12 C20,12 12.4949545,12 10.6233636,12.4776774 C9.59081818,12.7405161 8.77754545,13.5149677 8.50154545,14.4984516 C8,16.2809032 8,20 8,20 C8,20 8,23.7189677 8.50154545,25.5015484 C8.77754545,26.4850323 9.59081818,27.2594839 10.6233636,27.5224516 C12.4949545,28 20,28 20,28 C20,28 27.5050455,28 29.3766364,27.5224516 C30.4091818,27.2594839 31.2224545,26.4850323 31.4984545,25.5015484 C32,23.7189677 32,20 32,20 C32,20 32,16.2809032 31.4984545,14.4984516 Z"
+                        class="eastendFooterSocialIcons_listItemSvgPath-grey" />
+                </svg>
+                <img src="https://fontawesomeicons.com/lib/svg/logo-pinterest.svg" alt=""
+                    id="instagram-round-icon" />
+            </div>
+        </div>
+    </div>
+    <!-- <hr id="mid" /> -->
+    <div id="midPart">
+       
+        <div id="midTwo">
+            <div>
+                <h5>TOP US DESTINATIONS</h5>
+                <p>Travel Guides</p>
+                <p>Car Rental Las Vegas</p>
+                <p>Car Rental Los Angeles</p>
+                <p>Car Rental Chicago</p>
+                <p>Car Rental Orlando</p>
+                <p>Car Rental Miami</p>
+            </div>
+            <div>
+                <h5>RENTAL CAR TYPES</h5>
+                <p>One-Way Airport Car Rental</p>
+                <p>Luxury Car Rental</p>
+                <p>Pickup Truck Rental</p>
+                <p>Van Rental</p>
+                <p>SUV Rental</p>
+                <p>Rental Car Sizes-Sedans</p>
+            </div>
+            <div>
+                <h5>DRIVIFY EXTRAS</h5>
+                <p>Rental Car Products</p>
+                <p>Car Rental Services</p>
+                <p>Protections & Coverages</p>
+                <p>Loss Damage Waiver</p>
+                <p>Roadside Assistance</p>
+            </div>
+            <div>
+                <h5>DRIVIFY PARTNERS</h5>
+                <p>Affiliates</p>
+                <p>Travel Agents</p>
+                <p>Military & Veterans</p>
+                <p>Airlines Points Partners</p>
+                <p>Hotel Points Partners</p>
+            </div>
+            <div>
+                <h5>COMPANY INFO</h5>
+                <p>About Drivify</p>
+                <p>Best Price Pledge</p>
+                <p>Drivify Careers</p>
+                <p>Site Map</p>
+                <p>Lost & Found</p>
+                <p>We Try Harder</p>
+                <p>Accessibility</p>
+            </div>
+            <div>
+                <h5>SECURITY & PRIVACY</h5>
+                <p>Terms Of Use</p>
+                <p>Privacy Notice</p>
+                <p>Your Privacy Choices</p>
+                <p>Copyright Notices</p>
+                <p>Fraud & Scams</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

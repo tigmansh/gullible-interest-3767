@@ -1,0 +1,13 @@
+body{
+    background-image: url("");
+    background-repeat: no-repeat;
+    /* background-color: aqua; */
+}
+
+footer{
+    margin-top: 35%;
+}
+
+#table{
+    text-align: center;
+}
