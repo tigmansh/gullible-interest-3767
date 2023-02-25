@@ -2,13 +2,7 @@ var token = localStorage.getItem("token");
 var errorSound = document.getElementById("error-sound");
 var successSound = document.getElementById("success-sound");
 
-let editData = JSON.parse(localStorage.getItem("editing"));
-
-document.getElementById("start_location").value = editData.start_location;
-
-document.getElementById("end_location").value = editData.end_location;
-
-function onSave() {
+function onCreate() {
   const payload = {
     start_location: document.getElementById("start_location").value,
 
@@ -31,30 +25,27 @@ function onSave() {
     errorSound.play();
     swal("Error 404 🤖", "All the fields are required", "error");
   } else {
-    fetch(
-      `https://good-pink-narwhal-garb.cyclic.app/bookings/update/${editData._id}`,
-      {
-        method: "PATCH",
-        headers: {
-          "Content-type": "application/json",
-          Authorization: token,
-        },
-        body: JSON.stringify(payload),
-      }
-    )
+    fetch("https://good-pink-narwhal-garb.cyclic.app/bookings/dobooking", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        Authorization: token,
+      },
+      body: JSON.stringify(payload),
+    })
       .then((res) => res.json())
       .then((res) => {
         if (res.msg) {
           successSound.play();
-          swal("We Got You", res.msg, "success");
+          swal("We Are Excited To Serve You", res.msg, "success");
           document.getElementById("form").reset();
 
           setTimeout(function () {
             window.location.href = "userBookings.html";
-          }, 2000);
+          }, 3000);
         } else {
           errorSound.play();
-          swal("Ohh no 😔", res.err, "error");
+          swal("Sorry 😔", res.err, "error");
           document.getElementById("form").reset();
         }
       })

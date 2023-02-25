@@ -1,3 +1,5 @@
+var errorSound = document.getElementById("error-sound");
+var successSound = document.getElementById("success-sound");
 function onSignup() {
   const payload = {
     country: document.getElementById("country").value,
@@ -22,6 +24,7 @@ function onSignup() {
     !payload.address ||
     !payload.zipcode
   ) {
+    errorSound.play();
     swal("Error 404 🤖", "All the fields are required", "error");
   } else {
     fetch("https://good-pink-narwhal-garb.cyclic.app/users/register", {
@@ -34,6 +37,7 @@ function onSignup() {
       .then((res) => res.json())
       .then((res) => {
         if (res.msg) {
+          successSound.play();
           swal("Hooray 🎉", res.msg, "success");
           document.getElementById("form").reset();
 
@@ -41,6 +45,7 @@ function onSignup() {
             window.location.href = "login.html";
           }, 2000);
         } else {
+          errorSound.play();
           swal("Ohh no 😔", res.err, "error");
           document.getElementById("form").reset();
         }

@@ -1,13 +1,75 @@
-body{
+@import url('https://fonts.googleapis.com/css2?family=Manrope&family=Montserrat:wght@600&family=Poppins&family=Quicksand&display=swap');
+
+body {
     background-image: url("");
     background-repeat: no-repeat;
-    /* background-color: aqua; */
 }
 
-footer{
-    margin-top: 35%;
+footer {
+    margin-top: 10%;
 }
 
-#table{
+#table {
     text-align: center;
+    display: grid;
+    place-items: center;
+}
+
+#table table {
+    color: white;
+    margin-top: 7%;
+    border-radius: 50px;
+    border-collapse: collapse;
+}
+
+#table>table>thead {
+    background-color: #3C6255;
+    font-size: large;
+    font-family: "montserrat";
+    font-weight: 400;
+    color: white;
+}
+
+#row:nth-of-type(odd) {
+    background-color: #61876E;
+}
+
+#row:nth-of-type(even) {
+    background-color: #A6BB8D;
+}
+
+#table td {
+    padding: 20px;
+}
+
+tbody {
+    font-family: "poppins";
+}
+
+tbody tr {
+    transition: transform 0.3s ease;
+}
+
+tbody button {
+    /* color: #6096B4; */
+    border:0px;
+    padding: 5% 20%;
+    border-radius: 50px;
+    background-color:wheat;
+}
+
+table {
+    border-radius: 20px;
+}
+
+tbody tr:hover {
+    transform: scale(1.020) rotateX(0deg) rotateY(0deg);
+}
+tbody button{
+    font-family: "poppins";
+    font-size:medium;
+}
+
+#heading{
+    font-family: 'poppins';
 }
