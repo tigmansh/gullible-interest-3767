@@ -16,34 +16,17 @@ togglePassword.addEventListener("click", function () {
   }
 });
 
-function onSignup() {
+function onAdminLogin() {
   const payload = {
-    country: document.getElementById("country").value,
-    firstname: document.getElementById("firstname").value,
-    lastname: document.getElementById("lastname").value,
-    age: document.getElementById("age").value,
-    mobile: document.getElementById("mobile").value,
     email: document.getElementById("email").value,
     pass: document.getElementById("password").value,
-    address: document.getElementById("address").value,
-    zipcode: document.getElementById("zipcode").value,
+    dataType: document.getElementById("country").value, 
   };
-
-  if (
-    !payload.country ||
-    !payload.firstname ||
-    !payload.lastname ||
-    !payload.age ||
-    !payload.mobile ||
-    !payload.email ||
-    !payload.pass ||
-    !payload.address ||
-    !payload.zipcode
-  ) {
+  if (!payload.email || !payload.pass || !payload.dataType) {
     errorSound.play();
     swal("Error 404 🤖", "All the fields are required", "error");
   } else {
-    fetch("https://good-pink-narwhal-garb.cyclic.app/users/register", {
+    fetch(`https://good-pink-narwhal-garb.cyclic.app/admin/${payload.dataType}`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -52,19 +35,28 @@ function onSignup() {
     })
       .then((res) => res.json())
       .then((res) => {
-        if (res.msg) {
-          successSound.play();
-          swal("Hooray 🎉", res.msg, "success");
-          document.getElementById("form").reset();
+        if(res.msg){
 
-          setTimeout(function () {
-            window.location.href = "login.html";
-          }, 2000);
-        } else {
-          errorSound.play();
-          swal("Ohh no 😔", res.err, "error");
-          document.getElementById("form").reset();
+            localStorage.setItem("AdminUserData", JSON.stringify(res.msg));
+
+            successSound.play();
+            swal("Greetings 🤝", "Welcome Admin", "success");
+
+            document.getElementById("form").reset();
+
+            setTimeout(function () {
+              if(payload.dataType === "users") {
+                window.location.href = "AdminUserData.html";
+              }
+              else {
+                window.location.href = "adminBookingData.html";
+              }
+            }, 3000);
         }
+        else {
+            errorSound.play();
+            swal("Ohh no 😔", res.err, "error");
+          }
       })
       .catch((err) => console.log(err));
   }
