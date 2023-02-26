@@ -30,7 +30,8 @@ form {
     margin-top: 3%;
     margin-left: 22.7%;
 }
-body{
+
+body {
     background-image: url("https://img.freepik.com/free-photo/pastel-acrylic-abstract-background-vector_53876-102998.jpg?w=2000");
     background-repeat: no-repeat;
 }
@@ -66,7 +67,7 @@ input {
 
 input:hover {
     border: 2px solid black;
-     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #end-part-form {
@@ -82,9 +83,9 @@ input:hover {
 
 }
 
-#end-part-form p a{
+#end-part-form p a {
     text-decoration: none;
-    color:#d4002a;
+    color: #d4002a;
 }
 
 #end-part-form button {
@@ -94,13 +95,36 @@ input:hover {
     color: white;
     cursor: pointer;
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-    height: 60%; 
-    width: 170%; 
+    height: 60%;
+    width: 170%;
     margin-left: -70%;
     margin-top: 20%;
 }
 
 #end-part-form button:hover {
-    transform:translateY(-5px) translateX(-5px);
+    transform: translateY(-5px) translateX(-5px);
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* eye button for password*/
+
+.input-container {
+    position: relative;
+}
+
+.eye-icon {
+    position: absolute;
+    top: 50%;
+    right: 31%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    background: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-eye-512.png') no-repeat center center;
+    background-size: contain;
+}
+
+.eye-icon.hide-password {
+    background: url('https://cdn.iconscout.com/icon/premium/png-256-thumb/red-eye-1627576-1379630.png?f=webp&w=256') no-repeat center center;
+    background-size: contain;
 }

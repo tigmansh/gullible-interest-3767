@@ -1,5 +1,21 @@
 var errorSound = document.getElementById("error-sound");
 var successSound = document.getElementById("success-sound");
+
+const togglePassword = document.querySelector(".toggle-password");
+const password = document.querySelector("#password");
+
+togglePassword.addEventListener("click", function () {
+  const type =
+    password.getAttribute("type") === "password" ? "text" : "password";
+  password.setAttribute("type", type);
+  this.classList.toggle("hide-password");
+  if (type === "password") {
+    this.style.backgroundImage = `url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-eye-512.png')`;
+  } else {
+    this.style.backgroundImage = `url('https://cdn.iconscout.com/icon/premium/png-256-thumb/red-eye-1627576-1379630.png?f=webp&w=256')`;
+  }
+});
+
 function onLogin() {
   const payload = {
     email: document.getElementById("email").value,
@@ -30,7 +46,7 @@ function onLogin() {
         } else {
           errorSound.play();
           swal("Ohh no 😔", res.err, "error");
-          document.getElementById("form").reset();
+          // document.getElementById("form").reset();
         }
       })
       .catch((err) => console.log(err));
