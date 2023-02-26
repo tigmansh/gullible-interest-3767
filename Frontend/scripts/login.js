@@ -2,7 +2,7 @@ var errorSound = document.getElementById("error-sound");
 var successSound = document.getElementById("success-sound");
 
 const togglePassword = document.querySelector(".toggle-password");
-const password = document.querySelector("#password");
+const password = document.getElementById("password");
 
 togglePassword.addEventListener("click", function () {
   const type =
@@ -46,7 +46,6 @@ function onLogin() {
         } else {
           errorSound.play();
           swal("Ohh no 😔", res.err, "error");
-          // document.getElementById("form").reset();
         }
       })
       .catch((err) => console.log(err));

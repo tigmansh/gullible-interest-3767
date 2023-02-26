@@ -18,7 +18,6 @@ fetch("https://good-pink-narwhal-garb.cyclic.app/bookings", {
     } else {
       heading.innerHTML = null;
       heading.textContent = `${res.msg} 🤷‍♂️`;
-      table.append(response);
     }
   })
   .catch((err) => console.log(err));
