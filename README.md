@@ -1,6 +1,7 @@
 # gullible-interest-3767
 
-![logo(4)](https://user-images.githubusercontent.com/114407593/221496156-eca417a3-9d3c-45d1-8c14-9d8c1e992961.png)
+![Screenshot_20230222_225643](https://user-images.githubusercontent.com/114407593/221496755-08919332-7d6a-4bab-a804-c572297f09bc.png)
+
 
 Introduction
 - This is a car rental website that allows users to register, login and book cars. The website has a user-friendly interface that makes it easy to navigate and use. Users can access their dashboards where they can view, edit or delete their bookings. There is also an admin portal that allows the admin to manage the website.
