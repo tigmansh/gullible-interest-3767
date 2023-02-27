@@ -63,8 +63,8 @@ function onSignup() {
         } else {
           errorSound.play();
           swal("Ohh no 😔", res.err, "error");
-          document.getElementById("email").reset();
-          document.getElementById("password").reset()
+          document.getElementById("email").value = null;
+          document.getElementById("password").value = null;
         }
       })
       .catch((err) => console.log(err));
