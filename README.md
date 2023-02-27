@@ -3,11 +3,12 @@ Introduction
 This is a car rental website that allows users to register, login and book cars. The website has a user-friendly interface that makes it easy to navigate and use. Users can access their dashboards where they can view, edit or delete their bookings. There is also an admin portal that allows the admin to manage the website.
 
 Features
-User registration and login
-User dashboard to view, edit and delete bookings
-Admin portal to manage the website
-Admin can view registered users on the website
-Admin can view bookings data of the website
+- User registration and login
+- User dashboard to view, edit and delete bookings
+- Admin portal to manage the website
+- Admin can view registered users on the website
+- Admin can view bookings data of the website
+
 Technology Stack
 HTML, CSS and JavaScript for frontend development
 Node.js and MongoDB for backend development
