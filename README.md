@@ -10,18 +10,21 @@ Features
 - Admin can view bookings data of the website
 
 Technology Stack
-HTML, CSS and JavaScript for frontend development
-Node.js and MongoDB for backend development
+- HTML, CSS and JavaScript for frontend development
+- Node.js and MongoDB for backend development
+
 Getting Started
-Clone the repository to your local machine
-Configure the database connection details in the config.js file located in the config folder
-Open the index.html file in your web browser to access the website
+- Clone the repository to your local machine
+- Configure the database connection details in the config.js file located in the config folder
+- Open the index.html file in your web browser to access the website
+- 
 How to Use
-Register as a user on the website
-Login using your registered credentials
-Browse available cars and make a booking
-View, edit or delete your bookings from your dashboard
-Admin can login to the admin portal to manage the website
+- Register as a user on the website
+- Login using your registered credentials
+- Browse available cars and make a booking
+- View, edit or delete your bookings from your dashboard
+- Admin can login to the admin portal to manage the website
+
 Note: The backend is already deployed, so there is no need to install Node.js on your machine. You only need to configure the database connection details and open the index.html file in your web browser to access the website.
 
 
@@ -29,21 +32,25 @@ API Endpoints
 The following API endpoints are available for this project:
 
 Authentication Endpoints
-POST /api/login: User login
-POST /api/register: User registration
+- POST /api/login: User login
+- POST /api/register: User registration
+
 User Endpoints
-GET /api/user/:id: Get user details by ID
-PUT /api/user/:id: Update user details by ID
-DELETE /api/user/:id: Delete user by ID
+- GET /api/user/:id: Get user details by ID
+- PATCH /api/user/:id: Update user details by ID
+- DELETE /api/user/:id: Delete user by ID
+
 Booking Endpoints
-GET /api/booking/user/:userId: Get all bookings of a user by user ID
-GET /api/booking/:id: Get booking details by ID
-POST /api/booking: Create a new booking
-PUT /api/booking/:id: Update booking details by ID
-DELETE /api/booking/:id: Delete booking by ID
+- GET /api/booking/user/:userId: Get all bookings of a user by user ID
+- GET /api/booking/:id: Get booking details by ID
+- POST /api/booking: Create a new booking
+- PUT /api/booking/:id: Update booking details by ID
+- DELETE /api/booking/:id: Delete booking by ID
+
 Admin Endpoints
-GET /api/admin/users: Get all users
-GET /api/admin/bookings: Get all bookings
+- GET /api/admin/users: Get all users
+- GET /api/admin/bookings: Get all bookings
+
 Note: The authentication endpoints do not require a token, while the other endpoints require a valid token for access. The token is generated upon successful login and must be included in the Authorization header of each request.
 
 Landing Page With Sticky Navbar And Mega Menu Bar
