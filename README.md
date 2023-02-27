@@ -17,7 +17,7 @@ Getting Started
 - Clone the repository to your local machine
 - Configure the database connection details in the config.js file located in the config folder
 - Open the index.html file in your web browser to access the website
-- 
+
 How to Use
 - Register as a user on the website
 - Login using your registered credentials
